@@ -30,11 +30,17 @@
   
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 pt-8">
 
-      <a href="https://onlyfans.com/liamd_1" target="_blank" 
+      <!-- <a href="https://onlyfans.com/liamd_1" target="_blank" 
          class="bg-zinc-800 hover:bg-zinc-700 p-6 rounded-3xl flex flex-col items-center gap-3 transition-all">
         <i class="fa-solid fa-lock text-4xl"></i>
         <span class="font-medium">Exclusive Content ❤️</span>
-      </a>
+      </a> -->
+
+      <button onclick="handleExclusiveClick()" 
+          class="bg-zinc-800 hover:bg-zinc-700 p-6 rounded-3xl flex flex-col items-center gap-3 transition-all">
+        <i class="fa-solid fa-lock text-4xl"></i>
+        <span class="font-medium">Exclusive Content ❤️</span>
+      </button>
       
       <a href="https://x.com/liamd_1fit" target="_blank" 
          class="bg-zinc-800 hover:bg-zinc-700 p-6 rounded-3xl flex flex-col items-center gap-3 transition-all">
@@ -56,11 +62,82 @@
     </div>
   </section>
 
+<!-- In-App Browser Warning Overlay -->
+  <div id="inAppOverlay" class="hidden fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center px-6 overlay">
+    <div class="max-w-md w-full text-center">
+      <div class="mb-6 text-6xl">🔓</div>
+      <h2 class="text-3xl font-bold mb-4">Best viewed outside Instagram</h2>
+      <p class="text-zinc-300 mb-8 text-lg">
+        Your exclusive content works much better in Safari or Chrome.<br>
+        Here's how:
+      </p>
+
+      <div class="bg-zinc-900 rounded-3xl p-6 mb-8 text-left space-y-4">
+        <div class="flex gap-4">
+          <div class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">1</div>
+          <div>
+            <strong>Tap the three dots</strong> <span class="text-zinc-400">(•••)</span> in the top right
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">2</div>
+          <div>
+            Choose <strong>"Open in Safari"</strong> or <strong>"Open in Chrome"</strong>
+          </div>
+        </div>
+      </div>
+
+      <button onclick="openInExternalBrowser()" 
+              class="w-full bg-white text-black font-semibold text-lg py-4 rounded-2xl mb-4 hover:bg-zinc-200 transition-all">
+        Try to Open in External Browser
+      </button>
+
+      <button onclick="hideOverlay()" 
+              class="w-full text-zinc-400 hover:text-white transition-all">
+        I already opened it
+      </button>
+    </div>
+  </div>
+
+  
+
   <!-- Footer -->
   <footer class="bg-black py-12 px-6 text-center text-zinc-500">
     <p class="mb-4">liamd_1 - liamd_1fit - liamd1fit - liamd1 • Your Gym Crush</p>
     <p class="text-sm">Made with ❤️ for the gains</p>
   </footer>
 
+<!-- ======================== JAVASCRIPT SECTION ================================== -->
+  <script>
+    function isInAppBrowser() {
+      const ua = (navigator.userAgent || '').toLowerCase();
+      return ua.includes('instagram') || 
+             ua.includes('fbav') || 
+             ua.includes('fb_iab') || 
+             ua.includes('tiktok') ||
+             ua.includes('webview');
+    }
+
+    function handleExclusiveClick() {
+      const exclusiveUrl = "https://onlyfans.com/liamd_1";
+
+      if (isInAppBrowser()) {
+        document.getElementById('inAppOverlay').classList.remove('hidden');
+      } else {
+        window.open(exclusiveUrl, '_blank');
+      }
+    }
+
+    function openInExternalBrowser() {
+      const exclusiveUrl = "https://onlyfans.com/liamd_1";
+      window.location.href = exclusiveUrl;   // often triggers the native "Open in Browser" prompt
+    }
+
+    function hideOverlay() {
+      document.getElementById('inAppOverlay').classList.add('hidden');
+    }
+  </script>
+<!-- ======================== JAVASCRIPT SECTION ================================== -->
+  
 </body>
 </html>
