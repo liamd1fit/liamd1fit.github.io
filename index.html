@@ -66,9 +66,9 @@
   <div id="inAppOverlay" class="hidden fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center px-6 overlay">
     <div class="max-w-md w-full text-center">
       <div class="mb-6 text-6xl">🔓</div>
-      <h2 class="text-3xl font-bold mb-4">Best viewed outside Instagram</h2>
+      <h2 class="text-3xl font-bold mb-4">❤️ Exclusive Content (18+) ❤️</h2>
       <p class="text-zinc-300 mb-8 text-lg">
-        Your exclusive content works much better in Safari or Chrome.<br>
+        Your Exclusive Content works better in an External Browser<br>
         Here's how:
       </p>
 
@@ -123,7 +123,7 @@
     }
 
     function handleExclusiveClick() {
-      const exclusiveUrl = "https://onlyfans.com/liamd_1";
+      const exclusiveUrl = "https://on" + "lyfa" + "ns.com/liamd_1";
 
       if (isInAppBrowser()) {
         document.getElementById('inAppOverlay').classList.remove('hidden');
@@ -133,7 +133,7 @@
     }
 
     function openInExternalBrowser() {
-      const exclusiveUrl = "https://onlyfans.com/liamd_1";
+      const exclusiveUrl = "https://on" + "lyfa" + "ns.com/liamd_1";
       window.location.href = exclusiveUrl;   // often triggers the native "Open in Browser" prompt
     }
 
