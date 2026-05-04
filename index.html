@@ -41,6 +41,13 @@
         <i class="fa-solid fa-lock text-4xl"></i>
         <span class="font-medium">Exclusive Content ❤️</span>
       </button>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-6 pt-5">
+        <button onclick="handleExclusiveClick2()" 
+          class="bg-zinc-800 hover:bg-zinc-700 p-3 rounded-3xl flex flex-col items-center gap-3 transition-all">
+        <i class="fa-solid fa-h text-4xl"></i>
+        <span class="font-medium">Hidden Content 🤫</span>
+      </button>
       
       <a href="https://cash.app/$Liamd1fit" target="_blank" 
          class="bg-zinc-800 hover:bg-zinc-700 p-6 rounded-3xl flex flex-col items-center gap-3 transition-all">
@@ -138,6 +145,16 @@
       }
     }
 
+    function handleExclusiveClick2() {
+      const exclusiveUrl = "https://hi" + "dd" + "en.com/liamd1";
+      if (isInAppBrowser()) {
+        document.getElementById('inAppOverlay').classList.remove('hidden');
+      } else {
+        window.open(exclusiveUrl, '_blank');
+      }
+    }
+
+    
     function openInExternalBrowser() {
       const exclusiveUrl = "https://on" + "lyfa" + "ns.com/liamd_1";
       window.location.href = exclusiveUrl;   // often triggers the native "Open in Browser" prompt
